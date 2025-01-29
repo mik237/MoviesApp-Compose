@@ -19,13 +19,16 @@ import me.ibrahim.moviesapp.compose.splash.components.HeaderSection
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun SplashScreenPrev() {
-    SplashScreen(modifier = Modifier)
+    SplashScreen(modifier = Modifier){}
 }
 
 @Composable
-fun SplashScreen(modifier: Modifier) {
+fun SplashScreen(
+    modifier: Modifier = Modifier,
+    onButtonClick: () -> Unit
+) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.blackBackground))
     ) {
