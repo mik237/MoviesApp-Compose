@@ -1,4 +1,4 @@
-package me.ibrahim.moviesapp.compose.login.components
+package me.ibrahim.moviesapp.compose.presentation.login.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.shape.RoundedCornerShape

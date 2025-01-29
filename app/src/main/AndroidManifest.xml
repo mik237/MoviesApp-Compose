@@ -14,12 +14,12 @@
         android:theme="@style/Theme.MoviesAppComp"
         tools:targetApi="31">
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".presentation.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.MoviesAppComp" />
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".presentation.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.MoviesAppComp">
             <intent-filter>
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.movies_list.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MoviesAppComp" />
     </application>

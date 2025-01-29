@@ -1,4 +1,4 @@
-package me.ibrahim.moviesapp.compose.login
+package me.ibrahim.moviesapp.compose.presentation.login
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

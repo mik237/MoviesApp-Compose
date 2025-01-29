@@ -1,4 +1,4 @@
-package me.ibrahim.moviesapp.compose.splash.components
+package me.ibrahim.moviesapp.compose.presentation.splash.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
