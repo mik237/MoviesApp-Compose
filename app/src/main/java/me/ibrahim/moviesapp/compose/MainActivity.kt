@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import me.ibrahim.moviesapp.compose.splash.SplashScreen
 import me.ibrahim.moviesapp.compose.ui.theme.MoviesAppCompTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,8 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MoviesAppCompTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Ibrahim",
+                    SplashScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
