@@ -4,16 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.runtime.Composable
+import me.ibrahim.moviesapp.compose.core.BaseActivity
 import me.ibrahim.moviesapp.compose.ui.theme.MoviesAppCompTheme
 
-class LoginActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            MoviesAppCompTheme {
-                LoginScreen()
-            }
-        }
+class LoginActivity : BaseActivity() {
+    @Composable
+    override fun InitView() {
+        LoginScreen()
     }
 }
