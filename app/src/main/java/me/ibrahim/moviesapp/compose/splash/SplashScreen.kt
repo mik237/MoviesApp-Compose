@@ -1,5 +1,6 @@
 package me.ibrahim.moviesapp.compose.splash
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -8,11 +9,18 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -53,11 +61,10 @@ fun SplashScreen(modifier: Modifier) {
 }
 
 
-
 @Composable
 fun FooterSection() {
     ConstraintLayout {
-        val (bg2) = createRefs()
+        val (bg2, button) = createRefs()
         Image(
             painter = painterResource(id = R.drawable.bg2),
             contentDescription = null,
@@ -70,6 +77,37 @@ fun FooterSection() {
                     end.linkTo(parent.end)
                 }
         )
+
+        Button(
+            modifier = Modifier
+                .size(200.dp, 50.dp)
+                .constrainAs(button) {
+                    top.linkTo(bg2.top)
+                    bottom.linkTo(bg2.bottom)
+                    start.linkTo(bg2.start)
+                    end.linkTo(bg2.end)
+                },
+            shape = RoundedCornerShape(50.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent,
+                contentColor = Color.White
+            ),
+            border = BorderStroke(
+                width = 4.dp,
+                brush = Brush.linearGradient(
+                    listOf(
+                        colorResource(id = R.color.pink),
+                        colorResource(id = R.color.green)
+                    )
+                )
+            ),
+            onClick = { }) {
+            Text(
+                text = "Get In",
+                fontSize = 18.sp,
+                color = Color.White
+            )
+        }
     }
 }
 
@@ -88,7 +126,8 @@ fun HeaderSection() {
                 top.linkTo(parent.top)
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
-            }
+            },
+            contentScale = ContentScale.Crop
         )
 
         Image(
