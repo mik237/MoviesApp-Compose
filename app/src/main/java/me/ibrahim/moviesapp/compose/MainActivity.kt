@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import me.ibrahim.moviesapp.compose.login.LoginScreen
 import me.ibrahim.moviesapp.compose.splash.SplashScreen
 import me.ibrahim.moviesapp.compose.ui.theme.MoviesAppCompTheme
 
@@ -20,11 +21,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MoviesAppCompTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    SplashScreen(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+//                    SplashScreen(
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+//                }
+                LoginScreen()
             }
         }
     }
