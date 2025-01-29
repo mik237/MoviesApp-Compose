@@ -26,9 +26,9 @@ import me.ibrahim.moviesapp.compose.R
 
 @Composable
 fun GradientTextField(
+    modifier: Modifier = Modifier,
     value: String,
     hint: String = "",
-    modifier: Modifier = Modifier,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onValueChange: (String) -> Unit
