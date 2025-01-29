@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MoviesApp-Comp</string>
+    <string name="title_activity_splash">SplashActivity</string>
 </resources>
