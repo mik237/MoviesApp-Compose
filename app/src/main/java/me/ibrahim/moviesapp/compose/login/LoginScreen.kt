@@ -18,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -32,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.ibrahim.moviesapp.compose.R
+import me.ibrahim.moviesapp.compose.login.components.GradientButton
 import me.ibrahim.moviesapp.compose.login.components.GradientTextField
 
 @Preview
@@ -59,7 +61,7 @@ fun LoginScreen() {
             modifier = Modifier.matchParentSize()
         )
         Column(
-
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
@@ -91,6 +93,7 @@ fun LoginScreen() {
                 value = password,
                 visualTransformation = PasswordVisualTransformation(),
                 onValueChange = { password = it })
+
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
@@ -105,8 +108,20 @@ fun LoginScreen() {
                     .fillMaxWidth()
                     .clickable { }
             )
+
+            Spacer(modifier = Modifier.height(68.dp))
+
+            GradientButton(
+                title = "Login",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(60.dp)
+                    .padding(horizontal = 5.dp),
+                onClick = {}
+            )
         }
     }
 }
+
 
 
