@@ -1,4 +1,4 @@
-package me.ibrahim.moviesapp.compose.login
+package me.ibrahim.moviesapp.compose.presentation.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -33,8 +33,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.ibrahim.moviesapp.compose.R
-import me.ibrahim.moviesapp.compose.login.components.GradientButton
-import me.ibrahim.moviesapp.compose.login.components.GradientTextField
+import me.ibrahim.moviesapp.compose.presentation.login.components.GradientButton
+import me.ibrahim.moviesapp.compose.presentation.login.components.GradientTextField
 
 @Preview
 @Composable

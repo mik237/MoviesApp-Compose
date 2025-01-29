@@ -1,4 +1,4 @@
-package me.ibrahim.moviesapp.compose.login.components
+package me.ibrahim.moviesapp.compose.presentation.login.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -26,9 +26,9 @@ import me.ibrahim.moviesapp.compose.R
 
 @Composable
 fun GradientTextField(
+    modifier: Modifier = Modifier,
     value: String,
     hint: String = "",
-    modifier: Modifier = Modifier,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onValueChange: (String) -> Unit

@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -18,6 +20,11 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/movie/\"")
+        buildConfigField("String", "POSTER_IMAGES_BASEURL", "\"https://image.tmdb.org/t/p/w300\"")
+        buildConfigField("String", "BACKDROP_IMAGES_BASEURL", "\"https://image.tmdb.org/t/p/w780\"")
+        buildConfigField("String", "API_KEY", "\"1afa749c795f5974533a3ad0b1111784\"")
     }
 
     buildTypes {
@@ -35,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -68,4 +76,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.kotlinx.serialization.json)
+
+    // Koin for Android
+    implementation(libs.koin.androidx.compose)
+
 }

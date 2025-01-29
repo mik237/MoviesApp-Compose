@@ -1,4 +1,4 @@
-package me.ibrahim.moviesapp.compose.splash
+package me.ibrahim.moviesapp.compose.presentation.splash
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -13,8 +13,8 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.ibrahim.moviesapp.compose.R
-import me.ibrahim.moviesapp.compose.splash.components.FooterSection
-import me.ibrahim.moviesapp.compose.splash.components.HeaderSection
+import me.ibrahim.moviesapp.compose.presentation.splash.components.FooterSection
+import me.ibrahim.moviesapp.compose.presentation.splash.components.HeaderSection
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
