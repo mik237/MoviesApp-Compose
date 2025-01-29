@@ -19,7 +19,7 @@ import me.ibrahim.moviesapp.compose.splash.components.HeaderSection
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun SplashScreenPrev() {
-    SplashScreen(modifier = Modifier){}
+    SplashScreen(modifier = Modifier) {}
 }
 
 @Composable
@@ -42,7 +42,7 @@ fun SplashScreen(
 
         ) {
             HeaderSection()
-            FooterSection {}
+            FooterSection(onButtonClick = onButtonClick)
         }
     }
 }
