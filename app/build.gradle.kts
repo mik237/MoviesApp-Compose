@@ -81,4 +81,16 @@ dependencies {
     // Koin for Android
     implementation(libs.koin.androidx.compose)
 
+    //coil - image loading library
+    implementation("io.coil-kt.coil3:coil-compose:3.0.4")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.4")
+
+    //ktor dependencies
+    implementation(platform("io.ktor:ktor-bom:3.0.3"))
+    implementation("io.ktor:ktor-client-android")
+    implementation("io.ktor:ktor-client-serialization")
+    implementation("io.ktor:ktor-client-logging")
+    implementation("io.ktor:ktor-client-content-negotiation")
+    implementation("io.ktor:ktor-serialization-kotlinx-json")
+
 }

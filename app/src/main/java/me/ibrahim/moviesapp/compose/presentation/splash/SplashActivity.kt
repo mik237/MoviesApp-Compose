@@ -11,7 +11,7 @@ class SplashActivity : BaseActivity() {
 
     @Composable
     override fun InitView() {
-        SplashScreen() {
+        SplashScreen {
             val loginIntent = Intent(this@SplashActivity, LoginActivity::class.java)
             startActivity(loginIntent)
             finish()

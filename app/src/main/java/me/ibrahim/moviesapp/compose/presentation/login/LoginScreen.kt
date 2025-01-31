@@ -39,12 +39,12 @@ import me.ibrahim.moviesapp.compose.presentation.login.components.GradientTextFi
 @Preview
 @Composable
 fun LoginScreenPreview() {
-    LoginScreen()
+    LoginScreen{}
 }
 
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(onLoginClick: () -> Unit) {
 
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -117,7 +117,7 @@ fun LoginScreen() {
                     .fillMaxWidth()
                     .height(60.dp)
                     .padding(horizontal = 5.dp),
-                onClick = {}
+                onClick = onLoginClick
             )
         }
     }

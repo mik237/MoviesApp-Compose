@@ -1,7 +1,9 @@
 package me.ibrahim.moviesapp.compose.app
 
 import android.app.Application
-import me.ibrahim.moviesapp.compose.di.koinModule
+import me.ibrahim.moviesapp.compose.di.coreModule
+import me.ibrahim.moviesapp.compose.di.networkModule
+import me.ibrahim.moviesapp.compose.di.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -14,7 +16,7 @@ class MoviesApp : Application() {
         startKoin {
             androidContext(this@MoviesApp)
             androidLogger(level = Level.ERROR)
-            modules(koinModule)
+            modules(repositoryModule, networkModule, coreModule)
         }
     }
 }
