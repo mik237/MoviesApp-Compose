@@ -12,7 +12,7 @@ import me.ibrahim.moviesapp.compose.domain.Movie
 fun MoviesList(movies: List<Movie>) {
     LazyRow(
         contentPadding = PaddingValues(10.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         items(movies, key = {
             it.id

@@ -20,4 +20,15 @@ class MoviesRepositoryImpl(private val moviesRemoteApi: MoviesRemoteApi) : Movie
                 } ?: emptyList()
             }
     }
+
+    override suspend fun fetchUpcomingMovies(): Result<List<Movie>, DataError.Remote> {
+        return moviesRemoteApi.fetchUpcomingMovies()
+            .map { response ->
+                response.results?.let { moviesDto ->
+                    moviesDto.map { movieDto ->
+                        movieDto.toMovie()
+                    }
+                } ?: emptyList()
+            }
+    }
 }

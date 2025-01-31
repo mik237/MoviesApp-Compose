@@ -2,6 +2,7 @@ package me.ibrahim.moviesapp.compose.presentation.movies_list
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -35,13 +36,14 @@ fun MoviesListScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.blackBackground))
+            .background(colorResource(id = R.color.black4))
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .statusBarsPadding()
-                .verticalScroll(rememberScrollState())
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(25.dp)
         ) {
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -49,15 +51,15 @@ fun MoviesListScreen(
                 if (state.isLoading) {
                     CircularProgressIndicator()
                 } else {
-                    MoviesList(movies = state.movies)
+                    MoviesList(movies = state.nowPlayingMovies)
                 }
             }
 
-            TitledMoviesList(title = stringResource(id = R.string.now_playing)) {
+            TitledMoviesList(title = stringResource(id = R.string.upcoming)) {
                 if (state.isLoading) {
                     CircularProgressIndicator()
                 } else {
-                    MoviesList(movies = state.movies)
+                    MoviesList(movies = state.upcomingMovies)
                 }
             }
 

@@ -12,8 +12,8 @@
     <color name="black1">#fc19191b</color>
     <color name="black2">#1b19191b</color>
     <color name="black3">#282f32</color>
-    <color name="black4">#00282f32</color>
+    <color name="black4">#444445</color>
     <color name="green">#34e3c4</color>
     <color name="pink">#e45eb0</color>
-    <color name="orange">#FF9800</color>
+    <color name="orange">#FFC107</color>
 </resources>

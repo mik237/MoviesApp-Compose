@@ -17,33 +17,56 @@ import me.ibrahim.moviesapp.compose.presentation.main.toUiText
 
 class MoviesListViewModel(private val repository: MoviesRepository) : ViewModel() {
 
-    private var moviesListJob: Job? = null
+    private var nowPlayingMoviesListJob: Job? = null
+    private var upcomingMoviesListJob: Job? = null
 
     private val _state = MutableStateFlow(MoviesListState())
     val state = _state
-        .onStart { fetchMovies() }
+        .onStart {
+            fetchNowPlayingMovies()
+            fetchUpcomingMovies()
+        }
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000L),
             _state.value
         )
 
-    private fun fetchMovies() {
+    private fun fetchUpcomingMovies() {
+        upcomingMoviesListJob?.cancel()
 
-        moviesListJob?.cancel()
-
-        moviesListJob = viewModelScope.launch(Dispatchers.IO) {
+        upcomingMoviesListJob = viewModelScope.launch(Dispatchers.IO) {
             _state.update { it.copy(isLoading = true) }
-            repository.fetchNowPlayingMovies().onSuccess { movies ->
+            repository.fetchUpcomingMovies().onSuccess { movies ->
                 _state.update {
                     it.copy(
-                        movies = movies, isLoading = false, errorMsg = null
+                        upcomingMovies = movies, isLoading = false, errorMsg = null
                     )
                 }
             }.onError { error ->
                 _state.update {
                     it.copy(
-                        isLoading = false, movies = emptyList(), errorMsg = error.toUiText()
+                        isLoading = false, upcomingMovies = emptyList(), errorMsg = error.toUiText()
+                    )
+                }
+            }
+        }
+    }
+
+    private fun fetchNowPlayingMovies() {
+        nowPlayingMoviesListJob?.cancel()
+        nowPlayingMoviesListJob = viewModelScope.launch(Dispatchers.IO) {
+            _state.update { it.copy(isLoading = true) }
+            repository.fetchNowPlayingMovies().onSuccess { movies ->
+                _state.update {
+                    it.copy(
+                        nowPlayingMovies = movies, isLoading = false, errorMsg = null
+                    )
+                }
+            }.onError { error ->
+                _state.update {
+                    it.copy(
+                        isLoading = false, nowPlayingMovies = emptyList(), errorMsg = error.toUiText()
                     )
                 }
             }
