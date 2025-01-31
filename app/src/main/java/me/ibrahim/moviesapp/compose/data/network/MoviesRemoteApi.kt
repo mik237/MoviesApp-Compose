@@ -6,8 +6,7 @@ import me.ibrahim.moviesapp.compose.domain.Result
 
 interface MoviesRemoteApi {
 
-
-
     suspend fun fetchNowPlayingMovies(): Result<MoviesResponseDto, DataError.Remote>
+    suspend fun fetchUpcomingMovies(): Result<MoviesResponseDto, DataError.Remote>
 
 }

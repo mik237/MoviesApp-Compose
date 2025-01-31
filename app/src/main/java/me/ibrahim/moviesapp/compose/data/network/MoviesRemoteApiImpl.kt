@@ -15,4 +15,10 @@ class MoviesRemoteApiImpl(private val httpClient: HttpClient) : MoviesRemoteApi 
         }
     }
 
+    override suspend fun fetchUpcomingMovies(): Result<MoviesResponseDto, DataError.Remote> {
+        return safeCall {
+            httpClient.get("${BuildConfig.BASE_URL}${RemoteApiEndpoints.UPCOMING}")
+        }
+    }
+
 }

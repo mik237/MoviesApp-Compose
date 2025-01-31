@@ -18,6 +18,7 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import me.ibrahim.moviesapp.compose.BuildConfig
 import me.ibrahim.moviesapp.compose.data.network.MoviesRemoteApi
 import me.ibrahim.moviesapp.compose.data.network.MoviesRemoteApiImpl
 import org.koin.core.module.dsl.singleOf
@@ -67,6 +68,7 @@ val networkModule = module {
 
             install(DefaultRequest) {
                 header(HttpHeaders.ContentType, ContentType.Application.Json)
+                header(HttpHeaders.Authorization, "Bearer ${BuildConfig.API_TOKEN}")
             }
 
             defaultRequest {

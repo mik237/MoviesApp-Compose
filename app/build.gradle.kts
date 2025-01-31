@@ -25,6 +25,7 @@ android {
         buildConfigField("String", "POSTER_IMAGES_BASEURL", "\"https://image.tmdb.org/t/p/w300\"")
         buildConfigField("String", "BACKDROP_IMAGES_BASEURL", "\"https://image.tmdb.org/t/p/w780\"")
         buildConfigField("String", "API_KEY", "\"1afa749c795f5974533a3ad0b1111784\"")
+        buildConfigField("String", "API_TOKEN", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYWZhNzQ5Yzc5NWY1OTc0NTMzYTNhZDBiMTExMTc4NCIsIm5iZiI6MTczODE2NzM2NS41MzcsInN1YiI6IjY3OWE1NDQ1NDlmYmU0NjkwMWMwZGYxYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Eiz4R8pl_mvfewcXnSIKYzdkyPmDPb5X-dUWOq6jr5c\"")
     }
 
     buildTypes {

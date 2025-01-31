@@ -30,7 +30,7 @@ import me.ibrahim.moviesapp.compose.domain.Movie
 @Preview
 @Composable
 fun MovieItem(
-    movie: Movie = Movie()
+    movie: Movie = Movie(id = 1)
 ) {
     Column {
         ElevatedCard(
