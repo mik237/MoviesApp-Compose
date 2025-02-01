@@ -1,6 +1,7 @@
 package me.ibrahim.moviesapp.compose.presentation.movies_detail
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,6 +14,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import me.ibrahim.moviesapp.compose.R
@@ -39,14 +41,15 @@ fun MovieDetailScreen(
     ) {
         Column(
             modifier = Modifier
-                .matchParentSize()
+                .fillMaxSize()
+                .background(color = colorResource(id = R.color.black1))
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
         ) {
             MovieDetailHeader(movie = state.movie, modifier = Modifier.aspectRatio(1f))
 
-            MovieDetailContent(state = state, modifier = Modifier.weight(1f))
+            MovieDetailContent(state = state, modifier = Modifier)
         }
 
         Image(painter = painterResource(id = R.drawable.bg1), contentDescription = null)

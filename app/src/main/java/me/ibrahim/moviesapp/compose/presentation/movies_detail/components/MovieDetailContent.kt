@@ -39,85 +39,79 @@ fun MovieDetailContent(
     modifier: Modifier = Modifier,
     state: MovieDetailState
 ) {
-    Box(
-        modifier = modifier
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
             .fillMaxSize()
-            .background(color = colorResource(id = R.color.black1))
+            .padding(16.dp)
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .matchParentSize()
-                .padding(16.dp)
+
+        Text(
+            modifier = Modifier.padding(vertical = 5.dp),
+            text = state.movie.title ?: "The Gardener",
+            style = TextStyle(
+                fontSize = 25.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = Color.White
+            )
+        )
+
+        Row(
+            horizontalArrangement = Arrangement.Absolute.spacedBy(10.dp),
         ) {
-
-            Text(
-                modifier = Modifier.padding(vertical = 5.dp),
-                text = state.movie.title ?: "The Gardener",
-                style = TextStyle(
-                    fontSize = 25.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    color = Color.White
-                )
+            TitledIcon(
+                icon = Icons.Default.Star,
+                title = "4.3"
             )
 
-            Row(
-                horizontalArrangement = Arrangement.Absolute.spacedBy(10.dp),
-            ) {
-                TitledIcon(
-                    icon = Icons.Default.Star,
-                    title = "4.3"
-                )
-
-                TitledIcon(
-                    icon = Icons.Default.AccessTime,
-                    title = "178 min"
-                )
-
-                TitledIcon(
-                    icon = Icons.Default.DateRange,
-                    title = "19 Dec, 2001"
-                )
-            }
-
-            Spacer(modifier = Modifier.height(25.dp))
-
-            Text(
-                text = stringResource(id = R.string.summary),
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start,
-                style = TextStyle(
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Color.White
-                )
+            TitledIcon(
+                icon = Icons.Default.AccessTime,
+                title = "178 min"
             )
 
-            Text(
-                text = state.movie.overview ?: state.movie.title ?: "",
+            TitledIcon(
+                icon = Icons.Default.DateRange,
+                title = "19 Dec, 2001"
+            )
+        }
+
+        Spacer(modifier = Modifier.height(25.dp))
+
+        Text(
+            text = stringResource(id = R.string.summary),
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Start,
+            style = TextStyle(
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Medium,
+                color = Color.White
+            )
+        )
+
+        Text(
+            text = state.movie.overview ?: state.movie.title ?: "",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 10.dp),
+            textAlign = TextAlign.Start,
+            style = TextStyle(
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Normal,
+                color = Color.White
+            )
+        )
+
+        if (state.isLoading) {
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 10.dp),
-                textAlign = TextAlign.Start,
-                style = TextStyle(
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Normal,
-                    color = Color.White
-                )
-            )
-
-            if (state.isLoading) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(150.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    CircularProgressIndicator()
-                }
-            } else if (state.actors.isNotEmpty()) {
-                ActorsList(actors = state.actors)
+                    .height(150.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
             }
+        } else if (state.actors.isNotEmpty()) {
+            ActorsList(actors = state.actors)
         }
     }
 }
