@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Text
@@ -31,10 +32,10 @@ fun MovieItem(
     movie: Movie = Movie(id = 1)
 ) {
 
-    ElevatedCard(
+    Card(
         shape = RoundedCornerShape(10.dp),
         colors = CardDefaults.elevatedCardColors(
-            containerColor = colorResource(id = R.color.blackBackground),
+            containerColor = colorResource(id = R.color.black4),
             contentColor = Color.White
         ),
         modifier = Modifier
@@ -68,9 +69,9 @@ fun MovieItem(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 style = TextStyle(
-                    color = Color.White.copy(alpha = 0.8f),
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Thin
+                    color = Color.White,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium
                 ),
                 modifier = Modifier.padding(start = 5.dp, end = 5.dp, bottom = 5.dp)
             )
