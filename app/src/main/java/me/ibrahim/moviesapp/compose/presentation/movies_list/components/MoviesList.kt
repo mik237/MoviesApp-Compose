@@ -9,15 +9,13 @@ import androidx.compose.ui.unit.dp
 import me.ibrahim.moviesapp.compose.domain.Movie
 
 @Composable
-fun MoviesList(movies: List<Movie>, onClick: () -> Unit) {
+fun MoviesList(movies: List<Movie>, onMovieClick: (Movie) -> Unit) {
     LazyRow(
         contentPadding = PaddingValues(10.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        items(movies, key = {
-            it.id
-        }) {
-            MovieItem(movie = it, onClick = onClick)
+        items(movies, key = { movie -> movie.id }) { movie ->
+            MovieItem(movie = movie, onClick = { onMovieClick(movie) })
         }
     }
 }

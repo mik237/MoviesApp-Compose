@@ -83,17 +83,18 @@ dependencies {
     implementation(libs.koin.androidx.compose)
 
     //coil - image loading library
-    implementation("io.coil-kt.coil3:coil-compose:3.0.4")
-    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.4")
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
     //ktor dependencies
-    implementation(platform("io.ktor:ktor-bom:3.0.3"))
-    implementation("io.ktor:ktor-client-android")
-    implementation("io.ktor:ktor-client-serialization")
-    implementation("io.ktor:ktor-client-logging")
-    implementation("io.ktor:ktor-client-content-negotiation")
-    implementation("io.ktor:ktor-serialization-kotlinx-json")
+    implementation(platform(libs.ktor.bom))
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.serialization)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
 
-    implementation ("androidx.compose.material:material-icons-extended")
+    implementation (libs.androidx.material.icons.extended)
 
+    implementation(libs.androidx.navigation.compose)
 }

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -19,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -29,11 +31,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import me.ibrahim.moviesapp.compose.R
+import me.ibrahim.moviesapp.compose.domain.Movie
 import me.ibrahim.moviesapp.compose.presentation.movies_list.components.MoviesList
 import me.ibrahim.moviesapp.compose.presentation.movies_list.components.TitledMoviesList
 import me.ibrahim.moviesapp.compose.presentation.search.MovieSearchBar
@@ -43,7 +45,7 @@ import org.koin.androidx.compose.koinViewModel
 fun MoviesListScreen(
     modifier: Modifier = Modifier,
     viewModel: MoviesListViewModel = koinViewModel(),
-    onClick: () -> Unit
+    onMovieClick: (Movie) -> Unit
 ) {
 
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -94,17 +96,31 @@ fun MoviesListScreen(
 
             TitledMoviesList(title = stringResource(id = R.string.now_playing)) {
                 if (state.isLoading) {
-                    CircularProgressIndicator()
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
                 } else {
-                    MoviesList(movies = state.nowPlayingMovies, onClick = onClick)
+                    MoviesList(movies = state.nowPlayingMovies, onMovieClick = onMovieClick)
                 }
             }
 
             TitledMoviesList(title = stringResource(id = R.string.upcoming_movies)) {
                 if (state.isLoading) {
-                    CircularProgressIndicator()
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
                 } else {
-                    MoviesList(movies = state.upcomingMovies, onClick = onClick)
+                    MoviesList(movies = state.upcomingMovies, onMovieClick = onMovieClick)
                 }
             }
 

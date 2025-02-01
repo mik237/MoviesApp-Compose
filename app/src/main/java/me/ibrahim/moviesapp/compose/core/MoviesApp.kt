@@ -1,4 +1,4 @@
-package me.ibrahim.moviesapp.compose.app
+package me.ibrahim.moviesapp.compose.core
 
 import android.app.Application
 import me.ibrahim.moviesapp.compose.di.coreModule

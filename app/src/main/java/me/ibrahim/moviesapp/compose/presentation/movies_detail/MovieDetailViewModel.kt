@@ -20,7 +20,9 @@ class MovieDetailViewModel(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val movieId: Int = 539972
+//    private val movieId: Int = 539972
+
+//    val movie = savedStateHandle.toRoute<MovieDetailRoute>().movie
 
     private val _state = MutableStateFlow(MovieDetailState())
     val state = _state
@@ -37,6 +39,9 @@ class MovieDetailViewModel(
         when (action) {
             MovieDetailActions.GoBack -> {}
             is MovieDetailActions.MarkFavorite -> {}
+            is MovieDetailActions.OnMovieClick -> {
+                _state.update { it.copy(movie = action.movie) }
+            }
         }
     }
 
@@ -44,7 +49,7 @@ class MovieDetailViewModel(
     private fun fetchActorsList() {
         viewModelScope.launch(Dispatchers.IO) {
             _state.update { it.copy(isLoading = true) }
-            moviesRepository.fetchMovieActors(movieId = movieId)
+            moviesRepository.fetchMovieActors(movieId = _state.value.movie.id)
                 .onSuccess { actors ->
                     _state.update {
                         it.copy(actors = actors, isLoading = false)
