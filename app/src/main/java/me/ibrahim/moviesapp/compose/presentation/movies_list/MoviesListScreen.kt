@@ -54,8 +54,14 @@ fun MoviesListScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.black4))
+            .background(colorResource(id = R.color.blackBackground))
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.bg1),
+            contentDescription = null,
+            alpha = 1f
+        )
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -102,6 +108,5 @@ fun MoviesListScreen(
             }
 
         }
-        Image(painter = painterResource(id = R.drawable.bg1), contentDescription = null)
     }
 }
