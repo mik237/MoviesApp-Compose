@@ -31,7 +31,7 @@ fun Cast.toActor(): Actor {
         castId = castId,
         character = character,
         creditId = creditId,
-        id = id,
+        id = id ?: -1,
         knownForDepartment = knownForDepartment,
         name = name,
         originalName = originalName,

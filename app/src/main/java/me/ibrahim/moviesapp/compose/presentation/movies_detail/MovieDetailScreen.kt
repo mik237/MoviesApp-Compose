@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import me.ibrahim.moviesapp.compose.BuildConfig
 import me.ibrahim.moviesapp.compose.R
 import me.ibrahim.moviesapp.compose.domain.Movie
+import me.ibrahim.moviesapp.compose.presentation.movies_detail.components.ActorsList
 import me.ibrahim.moviesapp.compose.presentation.movies_detail.components.MovieDetailContent
 import me.ibrahim.moviesapp.compose.presentation.movies_detail.components.MovieDetailHeader
 import me.ibrahim.moviesapp.compose.presentation.movies_detail.components.MovieDetailToolbar
@@ -55,6 +56,7 @@ fun MovieDetailScreen(
         ) {
             MovieDetailHeader(movie = movie, modifier = Modifier.aspectRatio(1f))
             MovieDetailContent(movie = movie, modifier = Modifier.weight(1f))
+            ActorsList(actors = emptyList())
         }
 
         Image(painter = painterResource(id = R.drawable.bg1), contentDescription = null)
