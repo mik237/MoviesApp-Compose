@@ -9,9 +9,7 @@ import me.ibrahim.moviesapp.compose.domain.Movie
 fun MovieDto.toMovie(): Movie {
 
     return Movie(
-        adult = adult,
         backdropPath = "${BuildConfig.BACKDROP_IMAGES_BASEURL}$backdropPath",
-        genreIds = genreIds,
         id = id,
         originalLanguage = originalLanguage,
         originalTitle = originalTitle,
