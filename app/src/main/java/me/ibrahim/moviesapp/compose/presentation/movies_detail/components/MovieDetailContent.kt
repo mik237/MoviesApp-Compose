@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import me.ibrahim.moviesapp.compose.R
 import me.ibrahim.moviesapp.compose.domain.Movie
 import me.ibrahim.moviesapp.compose.presentation.movies_detail.MovieDetailState
+import kotlin.math.round
 
 @Composable
 fun MovieDetailContent(
@@ -41,7 +42,7 @@ fun MovieDetailContent(
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
@@ -61,17 +62,17 @@ fun MovieDetailContent(
         ) {
             TitledIcon(
                 icon = Icons.Default.Star,
-                title = "4.3"
+                title = "${round((state.movie.voteAverage ?: 0.0) * 10) / 10.0}"
             )
 
-            TitledIcon(
-                icon = Icons.Default.AccessTime,
-                title = "178 min"
-            )
+//            TitledIcon(
+//                icon = Icons.Default.AccessTime,
+//                title = "178 min"
+//            )
 
             TitledIcon(
                 icon = Icons.Default.DateRange,
-                title = "19 Dec, 2001"
+                title = "${state.movie.releaseDate}"
             )
         }
 

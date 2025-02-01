@@ -70,7 +70,7 @@ fun MoviesListScreen(
                 .fillMaxSize()
                 .statusBarsPadding()
                 .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(20.dp)
+            verticalArrangement = Arrangement.spacedBy(15.dp)
         ) {
             Spacer(modifier = Modifier.height(12.dp))
 
