@@ -12,4 +12,6 @@
     <string name="error_too_many_requests">Your quota seems to be exceeded.</string>
     <string name="error_serialization">Couldn\'t parse data.</string>
     <string name="search">Search</string>
+    <string name="back">Back</string>
+    <string name="title_activity_movie_detail">MovieDetailActivity</string>
 </resources>

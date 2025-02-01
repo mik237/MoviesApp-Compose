@@ -1,6 +1,7 @@
 package me.ibrahim.moviesapp.compose.presentation.movies_list.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
@@ -29,7 +30,8 @@ import me.ibrahim.moviesapp.compose.domain.Movie
 @Preview
 @Composable
 fun MovieItem(
-    movie: Movie = Movie(id = 1)
+    movie: Movie = Movie(id = 1),
+    onClick: () -> Unit = {}
 ) {
 
     Card(
@@ -40,6 +42,7 @@ fun MovieItem(
         ),
         modifier = Modifier
             .width(175.dp)
+            .clickable(onClick = onClick)
     ) {
 
         Column() {

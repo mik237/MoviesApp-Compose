@@ -42,7 +42,8 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun MoviesListScreen(
     modifier: Modifier = Modifier,
-    viewModel: MoviesListViewModel = koinViewModel()
+    viewModel: MoviesListViewModel = koinViewModel(),
+    onClick: () -> Unit
 ) {
 
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -95,7 +96,7 @@ fun MoviesListScreen(
                 if (state.isLoading) {
                     CircularProgressIndicator()
                 } else {
-                    MoviesList(movies = state.nowPlayingMovies)
+                    MoviesList(movies = state.nowPlayingMovies, onClick = onClick)
                 }
             }
 
@@ -103,7 +104,7 @@ fun MoviesListScreen(
                 if (state.isLoading) {
                     CircularProgressIndicator()
                 } else {
-                    MoviesList(movies = state.upcomingMovies)
+                    MoviesList(movies = state.upcomingMovies, onClick = onClick)
                 }
             }
 
