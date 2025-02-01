@@ -13,5 +13,7 @@
     <string name="error_serialization">Couldn\'t parse data.</string>
     <string name="search">Search</string>
     <string name="back">Back</string>
+    <string name="summary">Summary</string>
+    <string name="actors">Actors</string>
     <string name="title_activity_movie_detail">MovieDetailActivity</string>
 </resources>
