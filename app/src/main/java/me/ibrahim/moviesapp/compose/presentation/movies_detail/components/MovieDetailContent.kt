@@ -16,6 +16,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,11 +32,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import me.ibrahim.moviesapp.compose.R
 import me.ibrahim.moviesapp.compose.domain.Movie
+import me.ibrahim.moviesapp.compose.presentation.movies_detail.MovieDetailState
 
 @Composable
 fun MovieDetailContent(
     modifier: Modifier = Modifier,
-    movie: Movie
+    state: MovieDetailState
 ) {
     Box(
         modifier = modifier
@@ -50,7 +53,7 @@ fun MovieDetailContent(
 
             Text(
                 modifier = Modifier.padding(vertical = 5.dp),
-                text = movie.title ?: "The Gardener",
+                text = state.movie.title ?: "The Gardener",
                 style = TextStyle(
                     fontSize = 25.sp,
                     fontWeight = FontWeight.SemiBold,
@@ -85,13 +88,13 @@ fun MovieDetailContent(
                 textAlign = TextAlign.Start,
                 style = TextStyle(
                     fontSize = 20.sp,
-                    fontWeight = FontWeight.Normal,
+                    fontWeight = FontWeight.Medium,
                     color = Color.White
                 )
             )
 
             Text(
-                text = movie.overview ?: movie.title ?: "",
+                text = state.movie.overview ?: state.movie.title ?: "",
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 10.dp),
@@ -102,6 +105,19 @@ fun MovieDetailContent(
                     color = Color.White
                 )
             )
+
+            if (state.isLoading) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(150.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
+            } else if (state.actors.isNotEmpty()) {
+                ActorsList(actors = state.actors)
+            }
         }
     }
 }

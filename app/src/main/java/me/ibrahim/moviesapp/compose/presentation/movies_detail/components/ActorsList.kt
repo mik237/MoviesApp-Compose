@@ -34,15 +34,17 @@ fun ActorsList(
             text = stringResource(id = R.string.actors),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+                .padding(bottom = 10.dp, top = 16.dp),
             textAlign = TextAlign.Start,
             style = TextStyle(
                 fontSize = 20.sp,
-                fontWeight = FontWeight.Normal,
+                fontWeight = FontWeight.Medium,
                 color = Color.White
             )
         )
-        LazyRow {
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
             items(actors, key = { it.id }) { actor ->
                 ActorItem(actor = actor)
             }
