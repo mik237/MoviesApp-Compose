@@ -25,7 +25,8 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun MovieDetailScreen(
     movie: Movie,
-    viewModel: MovieDetailViewModel = koinViewModel()
+    viewModel: MovieDetailViewModel = koinViewModel(),
+    onBack: () -> Unit
 ) {
 
     LaunchedEffect(Unit) {
@@ -54,7 +55,10 @@ fun MovieDetailScreen(
             modifier = Modifier
                 .align(Alignment.TopCenter),
             movie = state.movie,
-            onAction = {}
+            onAction = { action ->
+                if (action == MovieDetailActions.GoBack) onBack()
+                else viewModel.onAction(action)
+            }
         )
     }
 }

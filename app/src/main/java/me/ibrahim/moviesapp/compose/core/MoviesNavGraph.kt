@@ -33,7 +33,7 @@ fun MoviesNavGraph(modifier: Modifier = Modifier) {
             )
         ) {
             val movie = it.toRoute<MovieDetailRoute>().movie
-            MovieDetailScreen(movie = movie)
+            MovieDetailScreen(movie = movie, onBack = {navController.navigateUp()})
         }
     }
 }
