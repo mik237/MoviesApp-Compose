@@ -94,4 +94,6 @@ dependencies {
     implementation("io.ktor:ktor-client-content-negotiation")
     implementation("io.ktor:ktor-serialization-kotlinx-json")
 
+    implementation ("androidx.compose.material:material-icons-extended")
+
 }
