@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -47,6 +48,8 @@ fun MoviesListScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     var searchQuery by remember { mutableStateOf("") }
+
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     Box(
         modifier = modifier
@@ -75,8 +78,12 @@ fun MoviesListScreen(
                 )
             )
 
-            MovieSearchBar(modifier = Modifier.padding(horizontal = 16.dp),
-                value = searchQuery, onValueChange = { searchQuery = it })
+            MovieSearchBar(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                value = searchQuery,
+                onValueChange = { searchQuery = it },
+                onImeAction = { keyboardController?.hide() }
+            )
 
             TitledMoviesList(title = stringResource(id = R.string.now_playing)) {
                 if (state.isLoading) {

@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
@@ -42,6 +43,7 @@ fun MovieSearchBar(
     value: String = "",
     hint: String = "Search..",
     contentColor: Color = Color.White,
+    onImeAction: (String) -> Unit = {},
     onValueChange: (String) -> Unit = {}
 ) {
 
@@ -86,6 +88,7 @@ fun MovieSearchBar(
                 )
             }
         },
+        keyboardActions = KeyboardActions(onSearch = { onImeAction(value) }),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text, imeAction = ImeAction.Search)
     )
 }
