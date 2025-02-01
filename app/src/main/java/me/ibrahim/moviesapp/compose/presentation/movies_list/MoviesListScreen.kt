@@ -16,6 +16,9 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -25,12 +28,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import me.ibrahim.moviesapp.compose.R
 import me.ibrahim.moviesapp.compose.presentation.movies_list.components.MoviesList
 import me.ibrahim.moviesapp.compose.presentation.movies_list.components.TitledMoviesList
+import me.ibrahim.moviesapp.compose.presentation.search.MovieSearchBar
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -40,6 +45,8 @@ fun MoviesListScreen(
 ) {
 
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    var searchQuery by remember { mutableStateOf("") }
 
     Box(
         modifier = modifier
@@ -67,6 +74,9 @@ fun MoviesListScreen(
                     textAlign = TextAlign.Start
                 )
             )
+
+            MovieSearchBar(modifier = Modifier.padding(horizontal = 16.dp),
+                value = searchQuery, onValueChange = { searchQuery = it })
 
             TitledMoviesList(title = stringResource(id = R.string.now_playing)) {
                 if (state.isLoading) {
