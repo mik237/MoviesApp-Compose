@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -18,9 +19,11 @@ import org.koin.androidx.compose.koinViewModel
 import kotlin.reflect.typeOf
 
 @Composable
-fun MoviesNavGraph(modifier: Modifier = Modifier) {
+fun MoviesNavGraph(
+    modifier: Modifier = Modifier,
+    navController: NavHostController = rememberNavController()
+) {
 
-    val navController = rememberNavController()
     val context = LocalContext.current
 
     NavHost(
