@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import kotlinx.serialization.json.Json
 import me.ibrahim.moviesapp.compose.domain.Movie
+import me.ibrahim.moviesapp.compose.presentation.favorite.FavoriteMoviesScreen
 import me.ibrahim.moviesapp.compose.presentation.movies_detail.MovieDetailActivity
 import me.ibrahim.moviesapp.compose.presentation.movies_detail.MovieDetailScreen
 import me.ibrahim.moviesapp.compose.presentation.movies_list.MoviesListScreen
@@ -51,6 +52,10 @@ fun MoviesNavGraph(
         ) {
             val movie = it.toRoute<MovieDetailRoute>().movie
             MovieDetailScreen(movie = movie, onBack = { navController.navigateUp() })
+        }
+
+        composable<FavoriteMoviesRoute> {
+            FavoriteMoviesScreen()
         }
     }
 }

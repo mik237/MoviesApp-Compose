@@ -22,6 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import me.ibrahim.moviesapp.compose.R
+import me.ibrahim.moviesapp.compose.core.FavoriteMoviesRoute
+import me.ibrahim.moviesapp.compose.core.MoviesListRoute
 
 @Preview(showSystemUi = true)
 @Composable
@@ -50,6 +52,24 @@ fun BottomNavigationBar(
                 ),
                 onClick = {
                     selectedIndex = index
+                    when (index) {
+                        0 -> navController.navigate(MoviesListRoute) {
+                            popUpTo<MoviesListRoute> { inclusive = true }
+                            launchSingleTop = true
+                        }
+
+                        1 -> navController.navigate(FavoriteMoviesRoute) {
+                            popUpTo<MoviesListRoute> { inclusive = false }
+                        }
+
+                        2 -> navController.navigate(MoviesListRoute) {
+                            popUpTo<MoviesListRoute> { inclusive = true }
+                        }
+
+                        3 -> navController.navigate(MoviesListRoute) {
+                            popUpTo<MoviesListRoute> { inclusive = true }
+                        }
+                    }
                 },
                 label = {
                     Text(text = label)
