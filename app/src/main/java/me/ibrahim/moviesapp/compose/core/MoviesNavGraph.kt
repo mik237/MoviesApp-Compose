@@ -33,9 +33,10 @@ fun MoviesNavGraph(modifier: Modifier = Modifier) {
             val viewModel: MoviesListViewModel = koinViewModel()
             MoviesListScreen(viewModel = viewModel, onMovieClick = {
 //                navController.navigate(MovieDetailRoute(movie = it))
-                val detailIntent = Intent(context, MovieDetailActivity::class.java)
-                val movie = Json.encodeToString(it)
-                detailIntent.putExtra("movie", movie)
+                val detailIntent = Intent(context, MovieDetailActivity::class.java).apply {
+                    val movie = Json.encodeToString(it)
+                    putExtra("movie", movie)
+                }
                 context.startActivity(detailIntent)
             })
         }
