@@ -13,8 +13,8 @@ abstract class BaseActivity : ComponentActivity() {
     abstract fun InitView()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        super.onCreate(savedInstanceState)
         setContent { MoviesAppCompTheme { InitView() } }
     }
 }

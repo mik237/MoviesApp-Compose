@@ -18,7 +18,11 @@ fun MoviesNavGraph(modifier: Modifier = Modifier) {
 
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = MoviesListRoute) {
+    NavHost(
+        navController = navController,
+        startDestination = MoviesListRoute,
+        modifier = modifier
+    ) {
 
         composable<MoviesListRoute> {
             val viewModel: MoviesListViewModel = koinViewModel()
@@ -33,7 +37,7 @@ fun MoviesNavGraph(modifier: Modifier = Modifier) {
             )
         ) {
             val movie = it.toRoute<MovieDetailRoute>().movie
-            MovieDetailScreen(movie = movie, onBack = {navController.navigateUp()})
+            MovieDetailScreen(movie = movie, onBack = { navController.navigateUp() })
         }
     }
 }

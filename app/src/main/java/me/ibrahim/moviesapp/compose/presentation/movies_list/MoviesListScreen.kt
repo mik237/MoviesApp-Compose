@@ -68,7 +68,6 @@ fun MoviesListScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .statusBarsPadding()
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(15.dp)
         ) {
@@ -77,7 +76,9 @@ fun MoviesListScreen(
             Text(
                 text = stringResource(id = R.string.title_movies_list_screen),
                 overflow = TextOverflow.Visible,
-                modifier = Modifier.padding(horizontal = 16.dp),
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
+                    .statusBarsPadding(),
                 maxLines = 2,
                 style = TextStyle(
                     color = Color.White,
