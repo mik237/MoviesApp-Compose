@@ -11,3 +11,9 @@ data class MovieDetailRoute(val movie: Movie)
 
 @Serializable
 object FavoriteMoviesRoute
+
+@Serializable
+object SearchMoviesRoute
+
+@Serializable
+object SettingsRoute

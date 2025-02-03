@@ -16,6 +16,8 @@ import me.ibrahim.moviesapp.compose.presentation.movies_detail.MovieDetailActivi
 import me.ibrahim.moviesapp.compose.presentation.movies_detail.MovieDetailScreen
 import me.ibrahim.moviesapp.compose.presentation.movies_list.MoviesListScreen
 import me.ibrahim.moviesapp.compose.presentation.movies_list.MoviesListViewModel
+import me.ibrahim.moviesapp.compose.presentation.search.SearchMoviesScreen
+import me.ibrahim.moviesapp.compose.presentation.settings.SettingsScreen
 import org.koin.androidx.compose.koinViewModel
 import kotlin.reflect.typeOf
 
@@ -56,6 +58,14 @@ fun MoviesNavGraph(
 
         composable<FavoriteMoviesRoute> {
             FavoriteMoviesScreen()
+        }
+
+        composable<SearchMoviesRoute> {
+            SearchMoviesScreen()
+        }
+
+        composable<SettingsRoute> {
+            SettingsScreen()
         }
     }
 }
