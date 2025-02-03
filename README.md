@@ -43,19 +43,19 @@ This app follows a clean architecture structure with the following layers:
 Here are some screenshots of the app:
 
 ### Splash Screen
-![Splash Screen](path/to/your/splash_screen_image.png)
-
-### Movies List Screen
-![Movies List](path/to/your/movies_list_screen_image.png)
-
-### Movie Detail Screen
-![Movie Detail](path/to/your/movie_detail_screen_image.png)
+![Splash Screen](screenshots/splash_screen_image.png)
 
 ### Login Screen
-![Login Screen](path/to/your/login_screen_image.png)
+![Login Screen](screenshots/login_screen_image.png)
+
+### Movies List Screen
+![Movies List](screenshots/movies_list_screen_image.png)
+
+### Movie Detail Screen
+![Movie Detail](screenshots/movie_detail_screen_image.png)
 
 ### Favorite Movies
-![Favorite Movies](path/to/your/favorite_movies_image.png)
+![Favorite Movies](screenshots/favorite_movies_image.png)
 
 
 ## Getting Started
