@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.room)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -25,7 +27,11 @@ android {
         buildConfigField("String", "POSTER_IMAGES_BASEURL", "\"https://image.tmdb.org/t/p/w300\"")
         buildConfigField("String", "BACKDROP_IMAGES_BASEURL", "\"https://image.tmdb.org/t/p/w780\"")
         buildConfigField("String", "API_KEY", "\"1afa749c795f5974533a3ad0b1111784\"")
-        buildConfigField("String", "API_TOKEN", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYWZhNzQ5Yzc5NWY1OTc0NTMzYTNhZDBiMTExMTc4NCIsIm5iZiI6MTczODE2NzM2NS41MzcsInN1YiI6IjY3OWE1NDQ1NDlmYmU0NjkwMWMwZGYxYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Eiz4R8pl_mvfewcXnSIKYzdkyPmDPb5X-dUWOq6jr5c\"")
+        buildConfigField(
+            "String",
+            "API_TOKEN",
+            "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYWZhNzQ5Yzc5NWY1OTc0NTMzYTNhZDBiMTExMTc4NCIsIm5iZiI6MTczODE2NzM2NS41MzcsInN1YiI6IjY3OWE1NDQ1NDlmYmU0NjkwMWMwZGYxYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Eiz4R8pl_mvfewcXnSIKYzdkyPmDPb5X-dUWOq6jr5c\""
+        )
     }
 
     buildTypes {
@@ -52,6 +58,9 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+    room {
+        schemaDirectory("$projectDir/schemas")
     }
 }
 
@@ -94,7 +103,11 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
 
-    implementation (libs.androidx.material.icons.extended)
+    implementation(libs.androidx.material.icons.extended)
 
     implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 }
