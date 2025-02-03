@@ -42,8 +42,8 @@ This app follows a clean architecture structure with the following layers:
 
 Here are some screenshots of the app:
 
-### Splash Screen
-<img src="screenshots/splash_screen_image.png" width="30%"/>
+
+<img src="screenshots/splash_screen_image.png" width="30%"/> <img src="screenshots/login_screen_image.png" width="30%"/>
 
 ### Login Screen
 ![Login Screen](screenshots/login_screen_image.png)
