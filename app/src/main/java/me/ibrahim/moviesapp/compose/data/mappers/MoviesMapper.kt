@@ -42,6 +42,23 @@ fun Movie.toMovieEntity(): MovieEntity {
     )
 }
 
+fun MovieEntity.toMovie(): Movie {
+    return Movie(
+        backdropPath = backdropPath,
+        id = id,
+        originalLanguage = originalLanguage,
+        originalTitle = originalTitle,
+        overview = overview,
+        popularity = popularity,
+        posterPath = posterPath,
+        releaseDate = releaseDate,
+        title = title,
+        video = video,
+        voteAverage = voteAverage,
+        voteCount = voteCount
+    )
+}
+
 fun Cast.toActor(): Actor {
     return Actor(
         castId = castId,

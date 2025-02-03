@@ -1,5 +1,6 @@
 package me.ibrahim.moviesapp.compose.core
 
+import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -38,7 +39,6 @@ fun MoviesNavGraph(
         composable<MoviesListRoute> {
             val viewModel: MoviesListViewModel = koinViewModel()
             MoviesListScreen(viewModel = viewModel, onMovieClick = {
-//                navController.navigate(MovieDetailRoute(movie = it))
                 val detailIntent = Intent(context, MovieDetailActivity::class.java).apply {
                     val movie = Json.encodeToString(it)
                     putExtra("movie", movie)
@@ -57,7 +57,9 @@ fun MoviesNavGraph(
         }
 
         composable<FavoriteMoviesRoute> {
-            FavoriteMoviesScreen()
+            FavoriteMoviesScreen {
+                openDetailActivity(context, it)
+            }
         }
 
         composable<SearchMoviesRoute> {
@@ -68,4 +70,12 @@ fun MoviesNavGraph(
             SettingsScreen()
         }
     }
+}
+
+fun openDetailActivity(context: Context, movie: Movie) {
+    val detailIntent = Intent(context, MovieDetailActivity::class.java).apply {
+        val movieStr = Json.encodeToString(movie)
+        putExtra("movie", movieStr)
+    }
+    context.startActivity(detailIntent)
 }

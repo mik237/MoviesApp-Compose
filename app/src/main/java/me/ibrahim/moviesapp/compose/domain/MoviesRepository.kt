@@ -11,7 +11,7 @@ interface MoviesRepository {
 
     //database operations
     suspend fun insertFavoriteMovie(movie: Movie)
-    fun getFavoriteMovies(): Flow<List<MovieEntity>>
+    fun getFavoriteMovies(): Flow<List<Movie>>
     fun getFavoriteMoviesIds(): Flow<List<Int>>
     suspend fun deleteFavoriteMovie(movieId: Int)
 

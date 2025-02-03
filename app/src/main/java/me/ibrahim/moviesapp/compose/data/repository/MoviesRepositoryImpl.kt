@@ -1,7 +1,7 @@
 package me.ibrahim.moviesapp.compose.data.repository
 
 import kotlinx.coroutines.flow.Flow
-import me.ibrahim.moviesapp.compose.data.database.MovieEntity
+import kotlinx.coroutines.flow.map
 import me.ibrahim.moviesapp.compose.data.database.MoviesDao
 import me.ibrahim.moviesapp.compose.data.mappers.toActor
 import me.ibrahim.moviesapp.compose.data.mappers.toMovie
@@ -56,8 +56,10 @@ class MoviesRepositoryImpl(
         moviesDao.upsert(movie.toMovieEntity())
     }
 
-    override fun getFavoriteMovies(): Flow<List<MovieEntity>> {
-        return moviesDao.getFavoriteMovies()
+    override fun getFavoriteMovies(): Flow<List<Movie>> {
+        return moviesDao.getFavoriteMovies().map {
+            it.map { movieEntity -> movieEntity.toMovie() }
+        }
     }
 
     override fun getFavoriteMoviesIds(): Flow<List<Int>> {

@@ -4,6 +4,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_movies_list_screen">What would you like to watch?</string>
     <string name="now_playing">Now Playing</string>
+    <string name="favorite_movies">Favorite Movies</string>
     <string name="upcoming_movies">Upcoming Movies</string>
     <string name="error_disk_full">Oops, it seems like your disk is full.</string>
     <string name="error_unknown">Oops, something went wrong.</string>
