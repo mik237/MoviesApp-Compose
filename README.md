@@ -1,6 +1,9 @@
 # MoviesApp-Comp
 
-MoviesApp-Comp is an Android application built using Jetpack Compose to provide users with an engaging experience for discovering movies. The app fetches information about Now Playing and Upcoming movies from [The Movie Database (TMDb)](https://www.themoviedb.org/), displays the list of movies, and allows users to mark movies as favorites. The app follows modern Android development best practices and is built with a clean architecture approach (MVI), using Kotlin, Jetpack Compose, and various libraries for efficient development.
+MoviesApp-Comp is an Android application built using Jetpack Compose to provide users with an engaging experience for discovering movies. The app
+fetches information about Now Playing and Upcoming movies from [The Movie Database (TMDb)](https://www.themoviedb.org/), displays the list of movies,
+and allows users to mark movies as favorites. The app follows modern Android development best practices and is built with a clean architecture
+approach (MVI), using Kotlin, Jetpack Compose, and various libraries for efficient development.
 
 ## Features
 
@@ -18,15 +21,15 @@ MoviesApp-Comp is an Android application built using Jetpack Compose to provide 
 This app follows a clean architecture structure with the following layers:
 
 1. **Presentation Layer**:
-   - Jetpack Compose UI.
-   - MVI architecture to handle UI states and interactions.
+    - Jetpack Compose UI.
+    - MVI architecture to handle UI states and interactions.
 
 2. **Domain Layer**:
-   - Contains business logic and Use Cases.
+    - Contains business logic and Use Cases.
 
 3. **Data Layer**:
-   - Ktor for making API calls to fetch movie data.
-   - Room Database for storing favorite movies.
+    - Ktor for making API calls to fetch movie data.
+    - Room Database for storing favorite movies.
 
 ## Libraries Used
 
@@ -45,18 +48,17 @@ Here are some screenshots of the app:
 
 <img src="screenshots/splash_screen_image.png" width="30%"/> <img src="screenshots/login_screen_image.png" width="30%"/>
 
-### Login Screen
-![Login Screen](screenshots/login_screen_image.png)
-
 ### Movies List Screen
-![Movies List](screenshots/movies_list_screen_image.png)
+
+<img src="screenshots/movies_list_screen_image1.png" width="30%"/> <img src="screenshots/movies_list_screen_image2.png" width="30%"/> <img src="screenshots/movies_list_screen_image3.png" width="30%"/>
 
 ### Movie Detail Screen
-![Movie Detail](screenshots/movie_detail_screen_image.png)
+
+<img src="screenshots/movie_detail_screen_image1.png" width="30%"/> <img src="screenshots/movie_detail_screen_image2.png" width="30%"/>
 
 ### Favorite Movies
-![Favorite Movies](screenshots/favorite_movies_image.png)
 
+<img src="screenshots/favorite_movies_image.png" width="30%"/>
 
 ## Getting Started
 
@@ -78,41 +80,45 @@ Before running this project, ensure that you have the following installed:
 2. Open the project in Android Studio.
 
 3. Make sure you have the required API key for The Movie Database (TMDb):
-   - Create an account on TMDb.
-   - Generate an API key and add it to your project.
-     - You can place it in the strings.xml or use it in your API calls directly.
-      
+    - Create an account on TMDb.
+    - Generate an API key and add it to your project.
+        - You can place it in the strings.xml or use it in your API calls directly.
+
 4. Sync Gradle files and build the project.
 5. Run the app on an emulator or real device.
 
 ### Screens & Navigation Flow
+
 - **Splash Screen**: Displays briefly when the app starts, then navigates to the Login Screen.
 - **Login Screen**: Allows users to authenticate (you can simulate login for testing).
 - **Main Screen**: Displays a list of Now Playing and Upcoming Movies.
-  - User can click on any movie item to navigate to the Movie Detail Screen.
+    - User can click on any movie item to navigate to the Movie Detail Screen.
 - **Movie Detail Screen**: Displays detailed information about the selected movie.
-  - Users can mark or unmark the movie as a favorite, which will be stored in the local Room Database.
- 
+    - Users can mark or unmark the movie as a favorite, which will be stored in the local Room Database.
+
 ### How It Works
 
 1. Fetching Movies:
-   - The app makes a request to The Movie Database API using Ktor and retrieves Now Playing and Upcoming movie lists.
-   - These lists are then displayed in the Movies List screen.
+    - The app makes a request to The Movie Database API using Ktor and retrieves Now Playing and Upcoming movie lists.
+    - These lists are then displayed in the Movies List screen.
 
 2. Marking Favorites:
-   - Users can mark any movie as a favorite. The app stores the movie in a local Room Database.
-   - The movie is removed from the favorite list if the user unmarks it.
-     
+    - Users can mark any movie as a favorite. The app stores the movie in a local Room Database.
+    - The movie is removed from the favorite list if the user unmarks it.
+
 3. MVI Architecture:
-   - The app uses the MVI (Model-View-Intent) architecture to separate UI, business logic, and state management.
+    - The app uses the MVI (Model-View-Intent) architecture to separate UI, business logic, and state management.
 
 4. Room Database:
-   - Room is used to persist the favorite movies locally. When a movie is marked as a favorite, it gets inserted into the database and can be retrieved later.
+    - Room is used to persist the favorite movies locally. When a movie is marked as a favorite, it gets inserted into the database and can be
+      retrieved later.
 
 ## Contributing
+
 Feel free to fork the repository, make changes, and create pull requests. Contributions are always welcome!
 
 ### Steps for contributing:
+
 1. Fork the repository.
 2. Clone your fork to your local machine.
 3. Make your changes and commit them.
