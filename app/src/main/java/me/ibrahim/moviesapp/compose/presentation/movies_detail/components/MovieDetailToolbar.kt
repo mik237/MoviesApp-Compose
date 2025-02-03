@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
@@ -17,13 +18,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import me.ibrahim.moviesapp.compose.R
-import me.ibrahim.moviesapp.compose.domain.Movie
 import me.ibrahim.moviesapp.compose.presentation.movies_detail.MovieDetailActions
+import me.ibrahim.moviesapp.compose.presentation.movies_detail.MovieDetailState
 
 @Composable
 fun MovieDetailToolbar(
     modifier: Modifier,
-    movie: Movie,
+    state: MovieDetailState,
     onAction: (MovieDetailActions) -> Unit
 ) {
     Row(
@@ -46,9 +47,9 @@ fun MovieDetailToolbar(
             )
         }
 
-        IconButton(onClick = { onAction(MovieDetailActions.MarkFavorite(movie)) }) {
+        IconButton(onClick = { onAction(MovieDetailActions.MarkFavorite(state.movie)) }) {
             Icon(
-                imageVector = Icons.Default.Favorite,
+                imageVector = if (state.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                 contentDescription = stringResource(id = R.string.back),
                 tint = Color.White,
                 modifier = Modifier

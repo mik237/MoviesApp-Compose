@@ -57,7 +57,7 @@ fun MovieDetailScreen(
         MovieDetailToolbar(
             modifier = Modifier
                 .align(Alignment.TopCenter),
-            movie = state.movie,
+            state = state,
             onAction = { action ->
                 if (action == MovieDetailActions.GoBack) onBack()
                 else viewModel.onAction(action)

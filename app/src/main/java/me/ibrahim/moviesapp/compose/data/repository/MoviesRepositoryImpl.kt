@@ -1,8 +1,11 @@
 package me.ibrahim.moviesapp.compose.data.repository
 
+import kotlinx.coroutines.flow.Flow
+import me.ibrahim.moviesapp.compose.data.database.MovieEntity
 import me.ibrahim.moviesapp.compose.data.database.MoviesDao
 import me.ibrahim.moviesapp.compose.data.mappers.toActor
 import me.ibrahim.moviesapp.compose.data.mappers.toMovie
+import me.ibrahim.moviesapp.compose.data.mappers.toMovieEntity
 import me.ibrahim.moviesapp.compose.data.network.MoviesRemoteApi
 import me.ibrahim.moviesapp.compose.domain.Actor
 import me.ibrahim.moviesapp.compose.domain.DataError
@@ -45,5 +48,23 @@ class MoviesRepositoryImpl(
                     casts.map { cast -> cast.toActor() }
                 } ?: emptyList()
             }
+    }
+
+
+    //database operations
+    override suspend fun insertFavoriteMovie(movie: Movie) {
+        moviesDao.upsert(movie.toMovieEntity())
+    }
+
+    override fun getFavoriteMovies(): Flow<List<MovieEntity>> {
+        return moviesDao.getFavoriteMovies()
+    }
+
+    override fun getFavoriteMoviesIds(): Flow<List<Int>> {
+        return moviesDao.getFavoriteMoviesIds()
+    }
+
+    override suspend fun deleteFavoriteMovie(movieId: Int) {
+        return moviesDao.deleteFavoriteMovie(movieId = movieId)
     }
 }
