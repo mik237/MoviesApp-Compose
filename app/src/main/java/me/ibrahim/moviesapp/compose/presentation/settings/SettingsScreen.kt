@@ -1,4 +1,4 @@
-package me.ibrahim.moviesapp.compose.presentation.favorite
+package me.ibrahim.moviesapp.compose.presentation.settings
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,8 +13,9 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import me.ibrahim.moviesapp.compose.R
 
+
 @Composable
-fun FavoriteMoviesScreen() {
+fun SettingsScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -23,7 +24,7 @@ fun FavoriteMoviesScreen() {
         Image(painter = painterResource(id = R.drawable.bg1), contentDescription = null)
 
         Text(
-            text = "Favorite Movies",
+            text = "Settings Screen",
             color = Color.White,
             modifier = Modifier.align(Alignment.Center)
         )

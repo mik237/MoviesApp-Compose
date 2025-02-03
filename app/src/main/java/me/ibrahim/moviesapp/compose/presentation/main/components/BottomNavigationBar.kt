@@ -24,6 +24,8 @@ import androidx.navigation.compose.rememberNavController
 import me.ibrahim.moviesapp.compose.R
 import me.ibrahim.moviesapp.compose.core.FavoriteMoviesRoute
 import me.ibrahim.moviesapp.compose.core.MoviesListRoute
+import me.ibrahim.moviesapp.compose.core.SearchMoviesRoute
+import me.ibrahim.moviesapp.compose.core.SettingsRoute
 
 @Preview(showSystemUi = true)
 @Composable
@@ -62,12 +64,12 @@ fun BottomNavigationBar(
                             popUpTo<MoviesListRoute> { inclusive = false }
                         }
 
-                        2 -> navController.navigate(MoviesListRoute) {
-                            popUpTo<MoviesListRoute> { inclusive = true }
+                        2 -> navController.navigate(SearchMoviesRoute) {
+                            popUpTo<MoviesListRoute> { inclusive = false }
                         }
 
-                        3 -> navController.navigate(MoviesListRoute) {
-                            popUpTo<MoviesListRoute> { inclusive = true }
+                        3 -> navController.navigate(SettingsRoute) {
+                            popUpTo<MoviesListRoute> { inclusive = false }
                         }
                     }
                 },
