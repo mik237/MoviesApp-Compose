@@ -1,5 +1,6 @@
 package me.ibrahim.moviesapp.compose.data.repository
 
+import me.ibrahim.moviesapp.compose.data.database.MoviesDao
 import me.ibrahim.moviesapp.compose.data.mappers.toActor
 import me.ibrahim.moviesapp.compose.data.mappers.toMovie
 import me.ibrahim.moviesapp.compose.data.network.MoviesRemoteApi
@@ -10,7 +11,10 @@ import me.ibrahim.moviesapp.compose.domain.MoviesRepository
 import me.ibrahim.moviesapp.compose.domain.Result
 import me.ibrahim.moviesapp.compose.domain.map
 
-class MoviesRepositoryImpl(private val moviesRemoteApi: MoviesRemoteApi) : MoviesRepository {
+class MoviesRepositoryImpl(
+    private val moviesRemoteApi: MoviesRemoteApi,
+    private val moviesDao: MoviesDao
+) : MoviesRepository {
 
     override suspend fun fetchNowPlayingMovies(): Result<List<Movie>, DataError.Remote> {
         return moviesRemoteApi.fetchNowPlayingMovies()
