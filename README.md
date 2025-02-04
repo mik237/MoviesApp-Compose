@@ -47,7 +47,7 @@ Here are some screenshots of the app:
 
 ### Splash and Login Screen
 
-<img src="screenshots/splash_screen.png" width="50%"/> <img src="screenshots/login_screen.png" width="50%"/>
+<img src="screenshots/splash_screen.png" width="40%"/> <img src="screenshots/login_screen.png" width="40%"/>
 
 ### Movies List Screen
 
