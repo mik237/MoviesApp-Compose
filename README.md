@@ -47,19 +47,19 @@ Here are some screenshots of the app:
 
 ### Splash and Login Screen
 
-<img src="screenshots/splash_screen_image.png" width="50%"/> <img src="screenshots/login_screen_image.png" width="50%"/>
+<img src="screenshots/splash_screen.png" width="50%"/> <img src="screenshots/login_screen.png" width="50%"/>
 
 ### Movies List Screen
 
-<img src="screenshots/movies_list_screen_image1.png" width="50%"/> <img src="screenshots/movies_list_screen_image2.png" width="50%"/>
+<img src="screenshots/movies_list_screen_1.png" width="50%"/> <img src="screenshots/movies_list_screen_2.png" width="50%"/>
 
 ### Movie Detail Screen
 
-<img src="screenshots/movie_detail_screen_image1.png" width="50%"/> <img src="screenshots/movie_detail_screen_image2.png" width="50%"/>
+<img src="screenshots/movie_detail_screen_1.png" width="50%"/> <img src="screenshots/movie_detail_screen_2.png" width="50%"/>
 
 ### Favorite Movies
 
-<img src="screenshots/favorite_movies_image.png" width="50%"/>
+<img src="screenshots/favorite_movies.png" width="50%"/>
 
 ## Getting Started
 
