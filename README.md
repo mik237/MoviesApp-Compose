@@ -51,15 +51,15 @@ Here are some screenshots of the app:
 
 ### Movies List Screen
 
-<img src="screenshots/movies_list_screen_image1.png" width="30%"/> <img src="screenshots/movies_list_screen_image2.png" width="30%"/>
+<img src="screenshots/movies_list_screen_image1.png" width="50%"/> <img src="screenshots/movies_list_screen_image2.png" width="50%"/>
 
 ### Movie Detail Screen
 
-<img src="screenshots/movie_detail_screen_image1.png" width="30%"/> <img src="screenshots/movie_detail_screen_image2.png" width="30%"/>
+<img src="screenshots/movie_detail_screen_image1.png" width="50%"/> <img src="screenshots/movie_detail_screen_image2.png" width="50%"/>
 
 ### Favorite Movies
 
-<img src="screenshots/favorite_movies_image.png" width="30%"/>
+<img src="screenshots/favorite_movies_image.png" width="50%"/>
 
 ## Getting Started
 
